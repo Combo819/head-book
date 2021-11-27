@@ -107,10 +107,6 @@ export default function PostCard(props: CardProps) {
         created at:{' '}
         {dayjs(post?.createTime).format('YYYY-MM-DD, dddd, YYYY HH:mm')}
       </div>
-      <div className={styles['time']}>
-        backup at:{' '}
-        {dayjs(post?.saveTime).format('YYYY-MM-DD, dddd, YYYY HH:mm')}
-      </div>
     </Card>
   );
 }

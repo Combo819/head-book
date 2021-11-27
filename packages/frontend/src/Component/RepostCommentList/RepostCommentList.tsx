@@ -7,6 +7,7 @@ import 'react-photo-view/dist/index.css';
 import { getImageUrl } from '../../Utility/parseUrl';
 import { IRepostComment } from '../../types';
 import { useQuery } from '../../Utility/route';
+import styles from './RepostCommentList.module.scss';
 
 export default function RepostCommentList(props: React.Props<any>) {
   let listRef = useRef<any>(null);
@@ -84,8 +85,8 @@ export default function RepostCommentList(props: React.Props<any>) {
             onShowSizeChange={onShowSizeChange}
             current={page}
             total={totalNumber}
-            className="p-2"
             pageSize={pageSize}
+            className={styles['repost-comment-list-pagination']}
           ></Pagination>
         </Col>
       </Row>

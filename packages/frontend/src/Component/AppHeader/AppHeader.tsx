@@ -29,6 +29,7 @@ import { MonitorPopover } from '../MonitorPopover';
 import { showMonitorIntro } from '../MonitorIntro';
 import { ImportModal } from '../ImportModal/ImportModal';
 import { ExportModal } from '../ExportModal/ExportModal';
+import { Link } from 'react-router-dom';
 
 const { Header } = Layout;
 
@@ -51,16 +52,10 @@ function AppHeader() {
   }, []);
 
   const buttons = [
-    <div className={styles['save']}>
-      <Button
-        icon={<PlusOutlined className={styles['save-icon']}></PlusOutlined>}
-        type="link"
-        onClick={() => {
-          setSaveModalVisible(true);
-        }}
-      >
-        Save
-      </Button>
+    <div>
+      <Link to='/'>
+      <img className={styles['icon']} src="./letter-h.png" alt="" />
+      </Link>
     </div>,
 
     <div className={styles['import']}>
@@ -74,35 +69,7 @@ function AppHeader() {
         Import
       </Button>
     </div>,
-    <div className={styles['import']}>
-      <Button
-        icon={
-          <CloudDownloadOutlined
-            className={styles['save-icon']}
-          ></CloudDownloadOutlined>
-        }
-        type="link"
-        onClick={() => {
-          setExportModalVisible(true);
-        }}
-      >
-        Export
-      </Button>
-    </div>,
-    <div className={styles['monitor-div']}>
-      <Popover
-        trigger="click"
-        className={styles['monitor']}
-        content={<MonitorPopover />}
-      >
-        <Button type="link">Monitor</Button>
-      </Popover>
 
-      <QuestionCircleOutlined
-        onClick={showMonitorIntro}
-        className={styles['question']}
-      />
-    </div>,
   ];
 
   return (
