@@ -59,57 +59,49 @@ function Home(Props: React.Props<any>) {
 
   return (
     <>
-      <Layout>
-        <Content>
-          <Row justify="center" align="middle">
-            <Col xs={24} sm={20} md={12} lg={12} xl={8}>
-              <Card>
-                <Collapse ghost>
-                  <Panel header="Query" key="1">
-                    <PostQuery />
-                  </Panel>
-                </Collapse>
-              </Card>
-            </Col>
-          </Row>
-          <Row justify="center" align="middle">
-            <Col ref={listRef} xs={24} sm={20} md={12} lg={12} xl={8}>
-              {posts.length > 0 ? (
-                posts.map((item: any) => {
-                  return (
-                    <div
-                      className={styles['home-card']}
-                      id={item.id}
-                      key={item.id}
-                    >
-                      <PostCard
-                        page={page}
-                        pageSize={pageSize}
-                        post={item}
-                      ></PostCard>
-                    </div>
-                  );
-                })
-              ) : (
-                <Empty />
-              )}
-            </Col>
-          </Row>
-          <Row justify="center" align="middle">
-            <Col xs={24} sm={20} md={12} lg={12} xl={8}>
-              <Pagination
-                onChange={changePage}
-                showSizeChanger
-                onShowSizeChange={onShowSizeChange}
-                current={page}
-                total={totalNumber}
-                pageSize={pageSize}
-                className={styles['home-pagination']}
-              ></Pagination>
-            </Col>
-          </Row>
-        </Content>
-      </Layout>
+      <Row justify="center" align="middle">
+        <Col xs={24} sm={20} md={12} lg={12} xl={8}>
+          <Card>
+            <Collapse ghost>
+              <Panel header="Query" key="1">
+                <PostQuery />
+              </Panel>
+            </Collapse>
+          </Card>
+        </Col>
+      </Row>
+      <Row justify="center" align="middle">
+        <Col ref={listRef} xs={24} sm={20} md={12} lg={12} xl={8}>
+          {posts.length > 0 ? (
+            posts.map((item: any) => {
+              return (
+                <div className={styles['home-card']} id={item.id} key={item.id}>
+                  <PostCard
+                    page={page}
+                    pageSize={pageSize}
+                    post={item}
+                  ></PostCard>
+                </div>
+              );
+            })
+          ) : (
+            <Empty />
+          )}
+        </Col>
+      </Row>
+      <Row justify="center" align="middle">
+        <Col xs={24} sm={20} md={12} lg={12} xl={8}>
+          <Pagination
+            onChange={changePage}
+            showSizeChanger
+            onShowSizeChange={onShowSizeChange}
+            current={page}
+            total={totalNumber}
+            pageSize={pageSize}
+            className={styles['home-pagination']}
+          ></Pagination>
+        </Col>
+      </Row>
     </>
   );
 

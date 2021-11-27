@@ -13,7 +13,7 @@ function App(): JSX.Element {
   return (
     <Layout>
       <AppHeader />
-      <Content>
+      <Content className={styles['content-background']}>
         <Switch>
           {routes.map((item): React.ReactNode => {
             return (
